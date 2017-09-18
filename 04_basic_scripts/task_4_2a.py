@@ -44,3 +44,7 @@ london_co = {
     'routing': True
     }
 }
+
+userInput_dn = input('Enter device name: ')
+userInput_pn = input('Enter parameter name: ')
+print(london_co[userInput_dn][userInput_pn])

@@ -12,3 +12,13 @@
 
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
+
+from sys import argv
+fileName = argv[1:]
+
+with open(fileName[0]) as f:
+    for line in f:
+        if not line.startswith('!'):
+            print(line.rstrip())
+        else:
+            continue

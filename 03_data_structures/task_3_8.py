@@ -19,3 +19,7 @@
 '''
 
 IP = '192.168.3.1'
+
+IPD = IP.split('.')
+print(''.join('{:<10}'.format(i) for i in IPD))
+print(''.join('{:<10}'.format(bin(int(j))[2:].zfill(8)) for j in IPD))

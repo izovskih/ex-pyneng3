@@ -18,3 +18,11 @@
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 
 '''
+
+with open('CAM_table.txt') as f:
+    for line in f:
+        if '0.7000' in line:
+            vlan, macAddr, inter = line.strip().replace('DYNAMIC', '').split()
+            print('{:5}{:16}{:5}'.format(vlan, macAddr, inter))
+        else:
+            continue

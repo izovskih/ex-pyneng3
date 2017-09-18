@@ -17,3 +17,23 @@
 '''
 
 ignore = ['duplex', 'alias', 'Current configuration']
+
+from sys import argv
+fileNameR, fileNameW = argv[1:]
+iItem = True
+lsStrs = []
+with open(fileNameR) as f:
+    for line in f:
+        for i in ignore:
+            if i in line:
+                iItem = False
+                break
+            else:
+                iItem = True
+                continue
+        if iItem == True:
+            lsStrs.append(line)
+        else:
+            continue
+with open(fileNameW, 'w') as fw:
+    fw.writelines(lsStrs)

@@ -14,3 +14,24 @@
 '''
 
 ignore = ['duplex', 'alias', 'Current configuration']
+
+from sys import argv
+
+fileName = argv[1]
+iItem = True
+lsStrs = []
+with open(fileName) as f:
+    for line in f:
+        for i in ignore:
+            if i in line:
+                iItem = False
+                break
+            else:
+                iItem = True
+                continue
+        if iItem == True:
+            lsStrs.append(line)
+        else:
+            continue
+with open('config_sw1_cleared.txt', 'w') as fw:
+    fw.writelines(lsStrs)

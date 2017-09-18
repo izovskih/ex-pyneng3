@@ -20,3 +20,24 @@ D: 224-239
 Ограничение: Все задания надо выполнять используя только пройденные темы.
 '''
 
+LB = 0
+UA = 0
+ipAddr = input('Enter IPv4 address like this X.X.X.X : ').split('.')
+if int(ipAddr[0]) in range(1, 224):
+    print('Address is unicast')
+elif int(ipAddr[0]) in range(224, 240):
+    print('Address is multicast')
+else:
+    for i in ipAddr:
+        if int(i) == 255:
+            LB += 1
+        elif int(i) == 0:
+            UA += 1
+        else:
+            break
+    if LB == 4:
+        print('Address is Local Broadcast')
+    elif UA == 4:
+        print('Address is UnAssigned')
+    else:
+        print('Address is unused')

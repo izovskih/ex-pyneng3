@@ -9,3 +9,6 @@
 '''
 
 MAC = 'AAAA:BBBB:CCCC'
+
+MAC = MAC.replace(':','')
+print(' '.join('{0:08b}'.format(ord(i), 'b') for i in MAC))

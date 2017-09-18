@@ -15,3 +15,10 @@ Outbound Interface:    FastEthernet0/0
 
 '''
 
+colLeft = ['Protocol:','Prefix:','AD/Metric:','Next-Hop:','Last update:','Outbound Interface:']
+with open('ospf.txt', 'r') as f:
+    for line in f:
+        print('\n')
+        colRight = line.replace('O','OSPF').replace('via','').split()
+        for i in range(len(colRight)):
+            print('{:25}{:25}'.format(colLeft[i], colRight[i].strip('[],')))
